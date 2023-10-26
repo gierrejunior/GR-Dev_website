@@ -1,0 +1,24 @@
+{
+  "mypy.dmypyExecutable": "/workspaces/egestor-api-data/.venv/bin/dmypy",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    },
+  },
+  "python.languageServer": "Pylance",
+  "python.linting.flake8Enabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.linting.myPyEnabled": true,
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 88,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "python.formatting.provider": "none"
+}
