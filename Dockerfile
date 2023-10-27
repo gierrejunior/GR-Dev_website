@@ -1,6 +1,21 @@
 FROM python:3.11.3-alpine3.18
 LABEL mantainer="gierremartins@gmail.com"
 
+# Atualize o sistema e instale o Zsh, Git, Curl e outros utilitários necessários.
+RUN apk --no-cache add zsh git curl && \
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+ENV PS1="%n:/djangoapp% "
+
+# Defina o Zsh como o shell padrão.
+SHELL ["/bin/zsh", "-c"]
+
+# Crie ou edite o arquivo .zshrc para configurar os plugins e incluir o plugin de sugestões.
+RUN echo 'plugins=(git docker zsh-autosuggestions)' > ~/.zshrc
+
+# Instale o plugin de sugestões.
+RUN git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
 # Essa variável de ambiente é usada para controlar se o Python deve 
 # gravar arquivos de bytecode (.pyc) no disco. 1 = Não, 0 = Sim
 ENV PYTHONDONTWRITEBYTECODE 1
